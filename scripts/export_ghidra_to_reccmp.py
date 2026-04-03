@@ -27,15 +27,13 @@ def main():
     parser.add_argument("--project-name")
     args = parser.parse_args()
 
-    mapping_path = SCRIPT_PATH.parent / "config" / "reccmp.csv"
-
     ghidra_helpers.runAnalyze(
         args.GHIDRA_REPO_NAME,
         project_name=args.project_name,
         process=args.program,
         username=args.username,
         ssh_key=args.ssh_key,
-        pre_scripts=[["ExportGhidraToReccmp.java", str(mapping_path)]],
+        pre_scripts=[["ExportGhidraToReccmp.java"]],
     )
 
 
